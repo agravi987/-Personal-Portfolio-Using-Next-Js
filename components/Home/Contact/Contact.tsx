@@ -20,7 +20,7 @@ const Contact = () => {
             <span className="text-cyan-200">Always Ready to contact</span>
           </h1>
           <p className="text-gray-400 mt-6 text-base sm:text-lg">
-            Reach out to me today and let's have a quick discussion
+            Reach out to me today and let&apos;s have a quick discussion
           </p>
 
           {/* Info */}

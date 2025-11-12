@@ -3,9 +3,9 @@ import { IconType } from "react-icons";
 
 type Props = {
   Icon: IconType;
-  role: String;
-  date?: String;
-  content: String;
+  role: string;
+  date?: string;
+  content: string;
 };
 
 const ResumeCard = ({ Icon, role, date, content }: Props) => {
