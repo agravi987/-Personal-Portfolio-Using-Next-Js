@@ -8,24 +8,29 @@ const Blog = () => {
         My Latest <span className="text-cyan-200">Blogs</span>
       </h1>
       <div className="w-[70%] mx-auto grid grid-cols-1 xl:grid-cols-3 xl:gap-4 gap-10 items-center mt-16">
-        <div>
-          <BlogCard
-            image="/images/b1.jpg"
-            title="Learn How to invest in Stock market "
-          />
-        </div>
-        <div>
-          <BlogCard
-            image="/images/b3.jpg"
-            title="Learn How to invest in Stock market "
-          />
-        </div>
-        <div>
-          <BlogCard
-            image="/images/b2.jpg"
-            title="Learn How to invest in Stock market "
-          />
-        </div>
+        {[
+          {
+            image: "/images/b1.jpg",
+            title: "Learn How to invest in Stock market ",
+          },
+          {
+            image: "/images/b3.jpg",
+            title: "Learn How to invest in Stock market ",
+          },
+          {
+            image: "/images/b2.jpg",
+            title: "Learn How to invest in Stock market ",
+          },
+        ].map((blog, index) => (
+          <div
+            key={index}
+            data-aos="fade-right"
+            data-aos-delay={index * 100}
+            data-aos-anchor-placement="top-bottom"
+          >
+            <BlogCard image={blog.image} title={blog.title} />
+          </div>
+        ))}
       </div>
     </div>
   );

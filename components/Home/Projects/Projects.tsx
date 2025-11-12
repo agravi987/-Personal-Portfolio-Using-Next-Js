@@ -2,7 +2,6 @@ import React from "react";
 import ProjectsCard from "./ProjectsCard";
 
 const Projects = () => {
-  
   const projectData = [
     {
       image: "/images/p1.jpg",
@@ -34,12 +33,18 @@ const Projects = () => {
       </h1>
       <div className="w-[70%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 mt-16">
         {projectData.map((project, index) => (
-          <ProjectsCard
+          <div
             key={index}
-            image={project.image}
-            title={project.title}
-            desc={project.desc}
-          />
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-center"
+            data-aos-delay={index * 100} // 0ms, 100ms, 200ms, 300ms...
+          >
+            <ProjectsCard
+              image={project.image}
+              title={project.title}
+              desc={project.desc}
+            />
+          </div>
         ))}
       </div>
     </div>

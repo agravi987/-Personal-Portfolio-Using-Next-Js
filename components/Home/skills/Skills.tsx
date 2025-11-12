@@ -1,5 +1,7 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import {
   FaFileExcel,
   FaChartBar,
@@ -10,43 +12,33 @@ import {
 import Tilt from "react-parallax-tilt";
 
 const skills = [
-  {
-    name: "Microsoft Excel",
-    icon: <FaFileExcel />,
-    percentage: 90,
-  },
-  {
-    name: "QuickBooks",
-    icon: <FaChartBar />,
-    percentage: 80,
-  },
-  {
-    name: "Google Analytics",
-    icon: <FaGoogle />,
-    percentage: 85,
-  },
-  {
-    name: "Tableau",
-    icon: <FaChartPie />,
-    percentage: 75,
-  },
-  {
-    name: "Business Communication",
-    icon: <FaComments />,
-    percentage: 88,
-  },
+  { name: "Microsoft Excel", icon: <FaFileExcel />, percentage: 90 },
+  { name: "QuickBooks", icon: <FaChartBar />, percentage: 80 },
+  { name: "Google Analytics", icon: <FaGoogle />, percentage: 85 },
+  { name: "Tableau", icon: <FaChartPie />, percentage: 75 },
+  { name: "Business Communication", icon: <FaComments />, percentage: 88 },
 ];
 
 const Skills = () => {
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
+
   return (
     <div className="text-white pt-16 pb-16">
       <h1 className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-white">
         My <span className="text-cyan-200">Skills</span>
       </h1>
+
       <div className="flex flex-wrap justify-center gap-6 mt-16">
         {skills.map((skill, index) => (
           <Tilt key={index} scale={1.1} transitionSpeed={400}>
-            <div className="bg-[#14134145] text-center w-40 h-48 rounded-3xl flex flex-col items-center justify-center shadow-lg transition hover:scale-105">
+            <div
+              data-aos="flip-right"
+              data-aos-delay={index * 100}
+              data-aos-anchor-placement="top-bottom"
+              className="bg-[#14134145] text-center w-40 h-48 rounded-3xl flex flex-col items-center justify-center shadow-lg transition hover:scale-105"
+            >
               <div className="text-5xl mb-4 text-gray-300">{skill.icon}</div>
               <p className="text-2xl font-semibold">{skill.percentage}%</p>
               <p className="text-purple-400 mt-1">{skill.name}</p>
